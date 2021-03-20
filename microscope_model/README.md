@@ -1,4 +1,4 @@
-# `MicroscopModel`
+# `MicroscopeModel`
 
 ## Overview
 
@@ -51,32 +51,61 @@ The new version of this will consist of:
 
 ### A flexible system for describing what a microscope "does"
 
+Essentially this would be a brief script, calling device properties and core functions given a set of arguments supplied at runtime
 
 * Create 1 or more MicroscopeModel objects
-* Call MicroscopeModel.execute(event)
-* event is a map of key, value pairs corresponding to a particular set of actions on a microscope
-  * Maybe organized in such a way that conveys hardware sequencing? 
-* These actions consist of Config groups (i.e. groups of properties), individual properties, and functions 
-* Generalize the idea of (Device, Property, Value) thruples to include functions in the essential API
-  * E.g. (“DemoCamera”, “.setExposure”, 300)
+* Call `MicroscopeModel.execute(event)`
+  * `event` is a map of key, value pairs corresponding to a particular set of actions on a microscope
+   * Maybe organized in such a way that conveys hardware sequencing? 
+   * These actions consist of Config groups (i.e. groups of properties), individual properties, and functions 
+
+Generalize the idea of (Device, Property, Value) thruples to include functions in the essential API
+  * E.g. `(“DemoCamera”, “.setExposure”, 300)`
 * Stored in config file as: 
-  * DemoCamera, .setExposure, [exposure]
-* Here [exposure] is a placeholder for a variable with the name exposure to be provided in the event
+  * `DemoCamera, .setExposure, [exposure]`
+* Here `[exposure]` is a placeholder for a variable with the name exposure to be provided in the event
 * Can also explicitly hard code values in config file, to be reused every time
-  * DemoShutter, .setShutterOpen, True
+  * `DemoShutter, .setShutterOpen, True`
 * And maybe also default arguments that can be overridden
-  * DemoCamera, .setExposure, [exposure]=100
-* This system would be extremely flexible, but also allow acquisitions to be expressed really concisely at runtime. Would make for concise programming through the API, and allow GUI control of more complicated stuff via the acquisition engine.
+  * `DemoCamera, .setExposure, [exposure]=100`
+* This system would be extremely flexible, but also allow acquisitions to be expressed in a very concise way at truntime. Would make for concise programming through the API, and allow GUI control of more complicated stuff via the acquisition engine.
 
 Example model which corresponds to the roles currently hard coded in core/AcqEng
+
 ```
-DemoCamera, .setExposure, [exposure]
-DemoXYStage, .setPosition, [xy_position] 
-DemoZStage, .setPosition, [z_position]
-$ConfigGroup, Channel, [preset]  
-DemoShutter, setOpen, True
-...
+__Device__DemoCamera, .setExposure, [exposure]
+__Device__DemoXYStage, .setPosition, [xy_position] 
+__Device__DemoZStage, .setPosition, [z_position]
+__Keyword__ConfigGroup, Channel, [preset]  
+__Device__DemoShutter, setOpen, True
+__Device__DemoCamera, .snapImage
+__Device__DemoShutter, setOpen, False
+__Device__DemoCamera2, .readImage
 ```
+
+This model could then be fed an event like:
+
+```
+{
+   'exposure': 100,
+   'xy_position': (12.3, 432.1),
+   'z_position': 7456.6,
+   'preset': 'DAPI'
+}
+
+```
+
+Maybe could also add conditionals in here, like:
+
+```
+if [camera1]
+   __Device__DemoCamera1, .snapImage
+else 
+   __Device__DemoCamera2, .snapImage
+```
+
+
+
 
 
 
@@ -112,10 +141,3 @@ Property,Core,Initialize,1
 # PixelSize settings
 # Resolution preset: Res20x
 ```
-
-
-
-
-
-
-
