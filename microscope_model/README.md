@@ -83,16 +83,6 @@ __Device__DemoShutter, setOpen, False
 __Device__DemoCamera2, .readImage
 ```
 
-Maybe could also add conditionals in here, like:
-
-```
-if [camera1]
-   __Device__DemoCamera1, .snapImage
-else 
-   __Device__DemoCamera2, .snapImage
-```
-
-
 This model could then be fed an event like:
 
 ```
@@ -104,6 +94,18 @@ This model could then be fed an event like:
 }
 
 ```
+
+Maybe could also add conditionals in here, like:
+
+```
+if [camera1]
+   __Device__DemoCamera1, .snapImage
+else 
+   __Device__DemoCamera2, .snapImage
+```
+
+
+
 
 
 
