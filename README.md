@@ -3,8 +3,8 @@ Place to discuss the future design of a universal microscope hardware interface
 
 
 An introducotry bit about 
-1) The original Micro-Manager core API/architecture has seen many huge successes
-2)how micromanger has grown to a large community of users and its other successes 
+1. **TODO** The original Micro-Manager core API/architecture has seen many huge successes
+2. **TODO** How micromanger has grown to a large community of users and its other successes 
 
 
 However, as new types of microscopes increasingly use novel types of hardware, complex robotic automation, produce data at dramatically larger rates, the needs of modern microscopes have increasingly pushed up against the limits of what the current Micro-Manager architecture can enable. Furthermore, a decade and half of lessons have been learned about successes and failures of the current design.
@@ -15,10 +15,12 @@ In many cases a familiarity with the current design of Micro-Manager is helpful 
 
 ## How to navigate this repository
 
-## High level overview
+**TODO** instructions for how community contributes
+Different folders contain different subtopics
+Issues contain discussions
 
 
-### Design principles
+## Design principles
 * **Performance**: Should be performant enough to take full advantage of hardware for acquiring/writing/reading data
 * **Flexibility**: Should be able to control turnkey systems and strange custom-built systems alike
 * **Modularity**: Low level API should sit on top of minimal, essential code for hardware control. Higher level code should be able to be mixed and matched as needed
@@ -31,26 +33,26 @@ In many cases a familiarity with the current design of Micro-Manager is helpful 
 
 The major problems with the core as currently designed are:
 
-1. Memory management:
+**1. Memory management**:
   * Two pathways with image buffer and ciruclar buffer
   * Restrictions on image shape
   * Copy data when moving through binding to other languages
 
-2. Threading: 
+**2. Threading**: 
   * Threading model puts burden of writing high performance device adapters onto the developer
 
-3. Implicit model of microscope:
+**3. Implicit model of microscope**:
   The core as it is currently constructed is implicit microscope architecture created by the “current” device roles. While this works quite nicely for many cases, many new or weird microscope architectures end up fitting into this in a rather clunky way. For example, the multi-camera device adapter, or similarly any device that has multiple XY or Z stages. 
 
 
 To address these we propose to replace the current core `MMCore`, with a new object `MMKernel`, with the following differences
 
-1. Rewritten memory management/data buffers
+**1. Rewritten memory management/data buffers**
 
-2. Thread safety and parallel device performance
+**2. Thread safety and parallel device performance**
   * All interaction with an external program (i.e. no calling hardware independent of kernel)
 
-In additon, we propose to replace the current implicit microscope model with an explicit `MicroscopeModel`, which will be present in a seperate module in a higher level. 
+In additon, we propose to replace the current implicit microscope model with an explicit `MicroscopeModel`, which will be present in a seperate module at a higher level. 
 
 This would contain the following:
 
