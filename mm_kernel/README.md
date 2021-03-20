@@ -1,3 +1,7 @@
+# MMKernel
+
+MMKernel is the successor to MMCore, which aims to provide improved memory and thread management and a lighter weight API
+
 ## Saving and memory management at low level (performance)
 **Problem:** Many current limitations with the Core’s memory model
 
