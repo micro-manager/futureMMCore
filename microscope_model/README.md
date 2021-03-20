@@ -1,4 +1,4 @@
-# `MicroscopModel`
+# `MicroscopeModel`
 
 ## Overview
 
