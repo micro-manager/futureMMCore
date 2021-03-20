@@ -11,13 +11,13 @@ However, as new types of microscopes increasingly use novel types of hardware, c
 
 The goal of this document is to provide a roadmap the development for successor to the Micro-Manager core. We hope for this to be a community driven effort, and feedback/discussions/contributions are welcome, from people of all backgrounds/experience levels.
 
-In many cases a familiarity with the current design of Micro-Manager is helpful (TODO: add link to first paper)
+In many cases a familiarity with the current design of Micro-Manager is helpful (**TODO**: add link to first paper)
 
 ## How to navigate this repository
 
 **TODO** instructions for how community contributes
-Different folders contain different subtopics
-Issues contain discussions
+- Different folders contain different subtopics
+- Issues contain discussions
 
 
 ## Design principles
