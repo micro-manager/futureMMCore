@@ -32,7 +32,7 @@ In many cases a familiarity with the current design of Micro-Manager is helpful 
 
 There are three main components of this project: 1) A new and improved version of the `MMCore` called `MMKernel` 2) A new `MicroscopeModel` module that generalizes micro-manager to many more microscope types 3) A redesign of the `MMDevice` API to better support exisitng device types, add new ones, and improve performance.
 
-## 1) MMKernel
+## 1) `MMKernel`
 
 The major problems with the core as currently designed are:
 
