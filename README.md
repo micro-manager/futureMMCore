@@ -47,7 +47,7 @@ The major problems with the core as currently designed are:
 
 To address these we propose to replace the current core `MMCore`, with a new object `MMKernel`, with the following differences
 
-**1. Rewritten memory management/data buffers**
+**1. Rewritten memory management/data buffers** ([Disscussion](https://github.com/micro-manager/futureMMCore/issues/17))
 
 **2. Thread safety and parallel device performance**
   * All interaction with an external program (i.e. no calling hardware independent of kernel)
