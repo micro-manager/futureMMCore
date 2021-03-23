@@ -30,6 +30,7 @@ In many cases a familiarity with the current design of Micro-Manager is helpful 
 
 (TODO: insert brief description of current core architecture that goes along with this figure)
 
+## MMKernel
 
 The major problems with the core as currently designed are:
 
@@ -52,6 +53,8 @@ To address these we propose to replace the current core `MMCore`, with a new obj
 **2. Thread safety and parallel device performance**
   * All interaction with an external program (i.e. no calling hardware independent of kernel)
 
+## MicroscopeModel
+
 In additon, we propose to replace the current implicit microscope model with an explicit `MicroscopeModel`, which will be present in a seperate module at a higher level. 
 
 This would contain the following:
@@ -65,4 +68,7 @@ This would contain the following:
 * A minimal API called by higher level code (i.e. acquisition engine) to execute devices in their defined order
 
 <img src="overview.png" width="600">
+
+## New MMDevice APIs
+Many of the device APIs were designed with a specific type of device in mind (e.g. the Camera device type is for physical cameras, not scanning systems; The Galvo API is particular to photobleaching systems). Furthermore, there have been many innovations in micrscopy hardware since the original design (e.g. event-based cameres, controllable LED array illumination). A major goal of this project is thus to rethink the device layer and update and add new devices as needed.
 
