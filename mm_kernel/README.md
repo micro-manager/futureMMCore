@@ -5,19 +5,7 @@ MMKernel is the successor to MMCore, which aims to provide improved memory and t
 ## Saving and memory management at low level (performance)
 **Problem:** Many current limitations with the Core’s memory model, which in some cases limit performance
 
-See [discussion](https://github.com/micro-manager/futureMMCore/issues/17)
-
-Some more unorganized ideas:
-* 1 Buffer per each Camera or data input device
-* Each buffer is sequence of images along with header containing essential metadata (e.g. width, height, depth/channel/component, pixeltype)
-  * Or rather than width/height/depth, to support weird configurations (an array of RGB sensors?)
-  * Maybe optional additional metadata, kept in a separate structure and able to be turned off to enable the fastest performance
-  * Keep track of positions in buffer that have been used, allow reuse if so, throw error if overflowed
-  * Write generically enough to allow for variable length images
-* Make property cache usage more efficient. E.g. OnPropertiesChanged handler
-* Metadata handling: every image in a sequence now has all metadata in the system attached, maybe only the metadata that changed should be included.
-  * How much metadata is even needed at this level?
-
+See [overview](https://github.com/micro-manager/futureMMCore/blob/main/mm_kernel/memory_management.md)
 
 
 ### Threading
