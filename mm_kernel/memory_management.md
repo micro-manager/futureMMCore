@@ -6,6 +6,8 @@
 
 The cost of the copies for `MMCoreJ` and `MMCorePy` isn't much, but still might be limiting for the highest performance applications. This is evidenced by the fact that (with the right hardware), we can readily achieve writing speeds over 1 GB/s from the Java layer using `AcqEngJ`. The cost of the ZeroMQ transfer to Pycro-Manager is substantial, as it is limited to something on the order of 100 MB/s. It is unclear whether this an inherent consequence of transferring across processes (unlike `MMCoreJ` and `MMCorePy`, which stay in the same process), or whether it is a result of ZeroMQ itself. There may be other implementations of ZeroMQ that could substantially improve speed.
 
+## Proposed changes in MMKernel
+
 `MMKernel` should be designed so that its implementation is as fast as possible for use cases like streaming data from a camera to a file, or streaming to RAM for real time display like [this](https://pycro-manager.readthedocs.io/en/latest/application_notebooks/PSF_viewer.html). What is the best way to do this?
 
 1. **Do everything at the level of C**. This may make sense for streaming to a file, but not so much for streaming to RAM for visualization/analysis
