@@ -70,6 +70,20 @@ Potential features
 * Generalize the concept of a device that drives acquisitions through TTL signals (and that uses knowledge about device delays and TTL feedback).
 
 
+## Development usability -- Making it really easy for new people to write device adapter
+**Problem:** People want to add new devices to MM but are confused/intimidated as to how to do this.
+
+**Proposed solution:**
+* Simplify/update the process + Really good documentation
+* Update the c++ build system and repository organization, installing VS2010 and getting the various 3rd party dependencies is a time consuming task.
+* Create simple to use tests that Device Adapter writers can use to test their code.  For instance, add tests that load and unload a device adapter, with and without an actual device attached, 
+* Create tests for multiple device types that check their correct functioning.
+* Create tests that measure performance of certain devices
+* Investigate the possibility of converting python code to C code through cython to allow for people to create device adapters in Python
+  * Or alternatively, provide, templates that can be used to generate most of the code for a simple device adapter without having to write from scratch  
+
+# Specific devices
+
 ## Cameras: 
 * unify the circular buffer and GetImageBuffer code paths, i.e. maybe every SnapImage should result in the image data automatically being deposited into the circular buffer. 
 * Generalize or duplicate Camera API to include support for scanning based cameras or event based camera.Maybe an intermediate level of abstraction should be between MMDevice and Camera. A “DataAcquisitionDevice” which could include 2D cameras, 1D sensors (like you might find in a scanning system), and 3D cameras like this: https://www.imec-int.com/en/hyperspectral-imaging. I suppose an RGB camera falls into the 3D classification as well.
