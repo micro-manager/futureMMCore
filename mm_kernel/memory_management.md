@@ -18,3 +18,15 @@ The cost of the copies for `MMCoreJ` and `MMCorePy` isn't much, but still might 
 - How much overhead is induced by the copy from the C layer to `MMCoreJ` and `MMCorePy`? Is it possible to get around this by wrapping native memory directly in Java/Python?
 - Is creating code to write data in pure c++ really necessary? Or could a wrapped native memory + python/java code achieve the same thing?
 
+**Some more unorganized ideas:**
+* 1 Buffer per each Camera or data input device
+* Each buffer is sequence of images along with header containing essential metadata (e.g. width, height, depth/channel/component, pixeltype)
+  * Or rather than width/height/depth, to support weird configurations (an array of RGB sensors?)
+  * Maybe optional additional metadata, kept in a separate structure and able to be turned off to enable the fastest performance
+  * Keep track of positions in buffer that have been used, allow reuse if so, throw error if overflowed
+  * Write generically enough to allow for variable length images
+* Make property cache usage more efficient. E.g. OnPropertiesChanged handler
+* Metadata handling: every image in a sequence now has all metadata in the system attached, maybe only the metadata that changed should be included.
+  * How much metadata is even needed at this level?
+
+
