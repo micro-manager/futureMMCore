@@ -10,7 +10,7 @@ The major problems with `MMCore` as currently designed are:
   * Threading model puts burden of writing high performance device adapters onto the developer
 
 **3. Implicit model of microscope**:
-  The core as it is currently constructed is implicit microscope architecture created by the “current” device roles. While this works quite nicely for many cases, many new or weird microscope architectures end up fitting into this in a rather clunky way. For example, the multi-camera device adapter, or similarly any device that has multiple XY or Z stages. 
+  * Implicit microscope architecture created by the “current” device roles. While this works quite nicely for many cases, many new or weird microscope architectures end up fitting into this in a rather clunky way. For example, the multi-camera device adapter, or similarly any device that has multiple XY or Z stages. 
 
 To address these we propose to replace the current core `MMCore`, with a new object `MMKernel`, with the following design
 
