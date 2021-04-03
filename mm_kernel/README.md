@@ -11,11 +11,10 @@ MMKernel is the successor to MMCore, which aims to provide improved memory and t
 
 
 ### Metadata
-consider normalizing metadata names, or at least maintain a list of preferred properties names to be shared with device adapter authors.
-
-Generic mechanism for persistent storage of calibration settings for devices (NS: not sure what this means)
-
-Delays: Re-evaluate the system used, at a minimum clean up documentation.
+- Consider normalizing metadata names, or at least maintain a list of preferred properties names to be shared with device adapter authors.
+- Generic mechanism for persistent storage of calibration settings for devices
+    - For example, persistent calbration settings for a liquid crystal or AOTF devices
+- Delays: Re-evaluate the system used, at a minimum clean up documentation.
 
 
 ### Other low-level Modules outside MMKernel
