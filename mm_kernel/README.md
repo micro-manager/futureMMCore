@@ -1,5 +1,5 @@
 # MMKernel
-The major problems with the core as currently designed are:
+The major problems with `MMCore` as currently designed are:
 
 **1. Memory management**:
   * Two pathways with image buffer and ciruclar buffer
