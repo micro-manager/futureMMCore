@@ -3,7 +3,7 @@ Micro-Manager (https://micro-manager.org) is open-source software for operation 
 
 However, as new types of microscopes increasingly use novel types of hardware, complex robotic automation, produce data at dramatically larger rates, the needs of modern microscopes have increasingly pushed up against the limits of what the current Micro-Manager architecture can enable. Furthermore, a decade and half of lessons have been learned about successes and failures of the current design.
 
-The device layer, MMCore, is the most widely used of all the Micro-Manager components and is the source of many of the current limitations. The goal of this document is to provide a roadmap the development for successor to the Micro-Manager core. We hope for this to be a community driven effort, and feedback/discussions/contributions are welcome, from people of all backgrounds/experience levels.
+The device layer, `MMCore`, is the most widely used of all the Micro-Manager components and is the source of many of the current limitations. The goal of this document is to provide a roadmap the development for successor to the Micro-Manager core. We hope for this to be a community driven effort, and feedback/discussions/contributions are welcome, from people of all backgrounds/experience levels.
 
 In many  a familiarity with the current design of Micro-Manager is helpful (**TODO**: add link to first paper)
 
@@ -11,7 +11,8 @@ In many  a familiarity with the current design of Micro-Manager is helpful (**TO
 
 **TODO** instructions for how community contributes
 - Different folders contain different subtopics
-- Issues contain discussions
+- Feel free to open issues to discuss certain topics
+- Some issues we specifically want to get community contributed descriptions about current microscope types used etc
 
 
 ## Design principles
@@ -22,47 +23,17 @@ In many  a familiarity with the current design of Micro-Manager is helpful (**TO
 * **Backwards compatible (sometimes)**: Strive for backwards compatibily as much as possible, but not at the expense of a better future software.
 
 
-**(TODO: insert brief description of current core architecture that goes along with this figure)**
+## Overview 
 
-There are three main components of this project: 1) A new and improved version of the `MMCore` called `MMKernel` 2) A new `MicroscopeModel` module that generalizes micro-manager to many more microscope types 3) A redesign of the `MMDevice` API to better support exisitng device types, add new ones, and improve performance.
+Though there are many limitations described throughout this repository with the current `MMCore`, one major limitiation in particular underlies the main architectural changes in this reorganization: The foundations of the Micro-Manager device interface were developed in 2005 and 2006, and `MMCore` was developed implicitly around the concept of a microscope being a computer-controlled system consisting of a microscope stand (with built-in reflector changers, focus drive, etc..) equipped with cameras, stages, light sources, and various other peripherals attached. In the years since it has become apparent that this a quite limiting assumption, and a major goal of this project is to generalize many of the features that were specifically hard-coded to correspond to this 2005 Motorized microscope model. Doing so requires removing implicit assumptions corresponding to this model from `MMCore` and making a new, more general `MicroscopeModel` abstraction.
 
-## 1) `MMKernel`
+Thus, the three main components of this project are: 
+1. A new and improved version of the `MMCore` called `[MMKernel](mm_kernel)` 
+2. A new `[MicroscopeModel](microscope_model)` module that generalizes micro-manager to many more microscope types 
+3. A redesign of the `[MMDevice](device_layer)` API to better support exisitng device types, add new types, and improve performance.
 
-The major problems with the core as currently designed are:
-
-**1. Memory management**:
-  * Two pathways with image buffer and ciruclar buffer
-  * Restrictions on image shape
-  * Copy data when moving through binding to other languages
-
-**2. Threading**: 
-  * Threading model puts burden of writing high performance device adapters onto the developer
-
-**3. Implicit model of microscope**:
-  The core as it is currently constructed is implicit microscope architecture created by the “current” device roles. While this works quite nicely for many cases, many new or weird microscope architectures end up fitting into this in a rather clunky way. For example, the multi-camera device adapter, or similarly any device that has multiple XY or Z stages. 
-
-To address these we propose to replace the current core `MMCore`, with a new object `MMKernel`, with the following differences
-
-**1. Rewritten memory management/data buffers** ([Details](https://github.com/micro-manager/futureMMCore/issues/17))
-
-**2. Thread safety and parallel device performance** ([Details](https://github.com/micro-manager/futureMMCore/blob/main/mm_kernel/threading.md))
-
-## 2) `MicroscopeModel`
-
-In additon, we propose to replace the current implicit microscope model with an explicit `MicroscopeModel`, which will be present in a seperate module at a higher level. 
-
-This would contain the following:
-
-* Stuff that is now in configuration
-  * A list of devices
-  * Config groups, preset values
-  * Initialization and shutdown settings and API commands
-* Coordinate transforms between stage devices 
-* Temporal relationships and triggering relationships between devices
-* A minimal API called by higher level code (i.e. acquisition engine) to execute devices in their defined order
 
 <img src="overview.png" width="600">
 
-## 3)New `MMDevice` APIs
-Many of the device APIs were designed with a specific type of device in mind (e.g. the Camera device type is for physical cameras, not scanning systems; The Galvo API is particular to photobleaching systems). Furthermore, there have been many innovations in micrscopy hardware since the original design (e.g. event-based cameres, controllable LED array illumination). A major goal of this project is thus to rethink the device layer and update and add new devices as needed.
+**(TODO: insert brief description of current core architecture that goes along with this figure)**
 
