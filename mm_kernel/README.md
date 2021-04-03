@@ -1,6 +1,18 @@
 # MMKernel
+The major problems with the core as currently designed are:
 
-MMKernel is the successor to MMCore, which aims to provide improved memory and thread management, a more light wieght API with optional, low-level modules
+**1. Memory management**:
+  * Two pathways with image buffer and ciruclar buffer
+  * Restrictions on image shape
+  * Copy data when moving through binding to other languages
+
+**2. Threading**: 
+  * Threading model puts burden of writing high performance device adapters onto the developer
+
+**3. Implicit model of microscope**:
+  The core as it is currently constructed is implicit microscope architecture created by the “current” device roles. While this works quite nicely for many cases, many new or weird microscope architectures end up fitting into this in a rather clunky way. For example, the multi-camera device adapter, or similarly any device that has multiple XY or Z stages. 
+
+To address these we propose to replace the current core `MMCore`, with a new object `MMKernel`, with the following design
 
 ### Memory management
 [New Memory Management overview](memory_management.md)
