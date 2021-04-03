@@ -1,4 +1,4 @@
-Here is how the system currently works:
+# The current state of MMCore
 
 - Images are copied from cameras internal buffer into the `MMCore` circular buffer
 - Higher level language wrappers (i.e. `MMCoreJ` and `MMCorePy`) then get access to this data by copying it into the respective buffers of their languages, using on many possible functions (`core.getTaggedImage`, `core.getImage`, `core.popNextImage`, etc.)
