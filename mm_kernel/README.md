@@ -1,15 +1,13 @@
 # MMKernel
 
-MMKernel is the successor to MMCore, which aims to provide improved memory and thread management and a lighter weight API
+MMKernel is the successor to MMCore, which aims to provide improved memory and thread management, a more light wieght API with optional, low-level modules
 
-## Saving and memory management at low level (performance)
-**Problem:** Many current limitations with the Core’s memory model, which in some cases limit performance
-
-See [overview](https://github.com/micro-manager/futureMMCore/blob/main/mm_kernel/memory_management.md)
+### Memory management
+[New Memory Management overview](memory_management.md)
 
 
 ### Threading
-[Threading Model](threading.md)  
+[New Threading Model overview](threading.md)  
 
 
 ### Metadata
@@ -18,8 +16,6 @@ consider normalizing metadata names, or at least maintain a list of preferred pr
 Generic mechanism for persistent storage of calibration settings for devices (NS: not sure what this means)
 
 Delays: Re-evaluate the system used, at a minimum clean up documentation.
-
-
 
 
 ### Other low-level Modules outside MMKernel
