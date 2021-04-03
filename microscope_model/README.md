@@ -41,13 +41,13 @@ A better solution would be to supply a configuration file that defines the Model
 
 ## An explicit `MicroscopeModel`
 
-The new version of this will consist of:
-
-* A list of devices
-* Config groups, preset values, initialization and shutdown settings
+* Stuff that is now in configuration
+  * A list of devices
+  * Config groups, preset values
+  * Initialization and shutdown settings and API commands
 * Coordinate transforms between stage devices 
-* Temporal relationships and triggering relationships between devices? (TODO: add discussion issue)
-
+* Temporal relationships and triggering relationships between devices
+* A minimal API called by higher level code (i.e. acquisition engine) to execute devices in their defined order
 
 ### A flexible system for describing what a microscope "does"
 
