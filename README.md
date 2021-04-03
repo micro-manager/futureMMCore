@@ -28,9 +28,9 @@ In many  a familiarity with the current design of Micro-Manager is helpful (**TO
 Though there are many limitations described throughout this repository with the current `MMCore`, one major limitiation in particular underlies the main architectural changes in this reorganization: The foundations of the Micro-Manager device interface were developed in 2005 and 2006, and `MMCore` was developed implicitly around the concept of a microscope being a computer-controlled system consisting of a microscope stand (with built-in reflector changers, focus drive, etc..) equipped with cameras, stages, light sources, and various other peripherals attached. In the years since it has become apparent that this a quite limiting assumption, and a major goal of this project is to generalize many of the features that were specifically hard-coded to correspond to this 2005 Motorized microscope model. Doing so requires removing implicit assumptions corresponding to this model from `MMCore` and making a new, more general `MicroscopeModel` abstraction.
 
 Thus, the three main components of this project are: 
-1. A new and improved version of the `MMCore` called `[MMKernel](mm_kernel)` 
-2. A new `[MicroscopeModel](microscope_model)` module that generalizes micro-manager to many more microscope types 
-3. A redesign of the `[MMDevice](device_layer)` API to better support exisitng device types, add new types, and improve performance.
+1. A new and improved version of the `MMCore` called [`MMKernel`](mm_kernel)
+2. A new [`MicroscopeModel`](microscope_model) module that generalizes micro-manager to many more microscope types 
+3. A redesign of the [`MMDevice`](device_layer) API to better support exisitng device types, add new types, and improve performance.
 
 
 <img src="overview.png" width="600">
