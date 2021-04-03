@@ -20,7 +20,8 @@ Delays: Re-evaluate the system used, at a minimum clean up documentation.
 
 ### Other low-level Modules outside MMKernel
 
-#### Logging
+#### Logging ([Discussion](https://github.com/micro-manager/futureMMCore/issues/12))
+
 Add option to provide logging output through a kernel callback, so that logging output can be redirected to other output than the Kernel log files.
 
 
