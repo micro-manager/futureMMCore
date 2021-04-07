@@ -124,17 +124,7 @@ You can report issues to the Micro-Manager Code of Conduct committee, at [conduc
 
 - [Nick Anthony](https://github.com/nanthony21)
 
-If your report involves any members of the committee, or if they feel
- they have a conflict of interest in handling it, then they will recuse 
-themselves from considering your report. Alternatively, if for any 
-reason you feel uncomfortable making a report to the committee, then you
- can also contact:
-
-- ???
-
 ## Incident reporting resolution & Code of Conduct enforcement
-
-*This section summarizes the most important points.
 
 We will investigate and respond to all complaints. The Micro-Manager Code of
  Conduct Committee will protect the identity of the reporter, and treat 
