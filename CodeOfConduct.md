@@ -116,7 +116,7 @@ reply to the person and point out this code of conduct (either in public
 to do that, please feel free to report to the Code of Conduct Committee 
 directly, or ask the Committee for advice, in confidence.
 
-You can report issues to the Micro-Manager Code of Conduct committee, at [conduct@micro-manager.com](mailto:conduct%40micro-manager.com) . Currently, the committee consists of:
+You can report issues to the Micro-Manager Code of Conduct committee, at [conduct@micro-manager.org](mailto:conduct%40micro-manager.org) . Currently, the committee consists of:
 
 - [Nico Stuurman](https://github.com/nicost) (chair)
 
