@@ -5,7 +5,7 @@ However, as new types of microscopes increasingly use novel types of hardware, c
 
 The device layer, `MMCore`, is the most widely used of all the Micro-Manager components and is the source of many of the current limitations. The goal of this document is to provide a roadmap the development for successor to the `MMCore`.
 
-Familiarity with the current design of the Micro-Manager core is useful for the issues discussed here. We prepared a manuscript,  [MMCoreDesign.pdf](https://github.com/nicost/futureMMCore/blob/pdf/MMCoreDesign.pdf), describing the `MMCore`  design, its advantages and some shortcomings/omissions.
+Familiarity with the current design of the Micro-Manager core is useful for the issues discussed here. We prepared a manuscript,  [MMCoreDesign.pdf](blob/pdf/MMCoreDesign.pdf), describing the `MMCore`  design, its advantages and some shortcomings/omissions.
 
 We hope for this to be a community driven effort, and feedback/discussions/contributions are welcome, from people of all backgrounds/experience levels.
 
