@@ -14,6 +14,8 @@ We hope for this to be a community driven effort, and feedback/discussions/contr
 
 This main document contains a high level overview of various topics. Different folders and `.md` files contain drafts of plans for the new major components. Issues are the place for discussions. Some issues [specially marked with `Microscope builder input needed`](https://github.com/micro-manager/futureMMCore/issues?q=is%3Aopen+is%3Aissue+label%3A%22Microscope+builder+input+needed%22) are topics on which we especially would like to get feedback/ideas from people using and building microscopes. Often it will be possbile to contribute to such discussions without much if any understanding of Micro-Manager and the rest of this project, so if you fall into this category this should be the first place to look to participate.
 
+We plan to periodically make new "Releases" of this repository, which will integrate a new rounds suggestions/feedback/discussions into our developing plan.
+
 ## Design principles
 * **Performance**: Should be performant enough to take full advantage of hardware for acquiring/writing/reading data
 * **Flexibility**: Should be able to control turnkey systems and strange custom-built systems alike
