@@ -7,7 +7,7 @@ The device layer, `MMCore`, is the most widely used of all the Micro-Manager com
 
 Familiarity with the current design of the Micro-Manager core is useful for the issues discussed here. We prepared a manuscript,  [MMCoreDesign.pdf](MMCoreDesign.pdf), describing the `MMCore`  design, its advantages and some shortcomings/omissions.
 
-We hope for this to be a community driven effort, and feedback/discussions/contributions are welcome, from people of all backgrounds/experience levels.
+We hope for this to be a community driven effort, and feedback/discussions/contributions are welcome, from people of all backgrounds/experience levels, but please honor our [Code of Conduct](https://github.com/micro-manager/micro-manager/blob/master/CodeOfConduct.md).
 
 
 ## How to navigate this repository
